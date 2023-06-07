@@ -1,0 +1,21 @@
+.navBar-container{
+    position: fixed;
+    display: flex;
+    width: 100%;
+}
+
+.navbar{
+    position: relative;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 65px;
+}
+
+.icons{
+    display: flex;
+    gap: 10px;
+}
+
