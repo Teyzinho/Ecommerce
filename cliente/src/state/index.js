@@ -22,7 +22,7 @@ export const cartSlice = createSlice({
       state.cart = state.cart.filter((item) => item.id !== action.payload.id); // Remove um item do carrinho com base no ID recebido
     },
 
-    increaseCout: (state, action) => {
+    increaseCount: (state, action) => {
       state.cart = state.cart.map((item) => {
         if (item.id === action.payload.id) {
           item.count++; // Aumenta a quantidade de um item no carrinho com base no ID recebido
@@ -31,7 +31,7 @@ export const cartSlice = createSlice({
       });
     },
 
-    decreaseCout: (state, action) => {
+    decreaseCount: (state, action) => {
       state.cart = state.cart.map((item) => {
         if (item.id === action.payload.id && item.count > 1) {
           item.count--; // Diminui a quantidade de um item no carrinho com base no ID recebido, desde que a quantidade seja maior que 1
@@ -51,8 +51,8 @@ export const {
   setItems,
   addToCart,
   removeFromCart,
-  decreaseCout,
-  increaseCout,
+  decreaseCount,
+  increaseCount,
   setIsCartOpen,
 } = cartSlice.actions;
 
