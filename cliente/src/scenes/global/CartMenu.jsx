@@ -51,7 +51,7 @@ const CartMenu = () => {
                         </IconButton>
                     </FlexBox>
 
-                    {/* List */}
+                    {/* ******** Lista ***** */}
                     <Box>
                         {cart.map((item) => {
                             <Box key={`${item.attributes.name}-${item.id}`}>
@@ -111,7 +111,7 @@ const CartMenu = () => {
                         })}
                     </Box>
 
-                    {/* Ações */}
+                    {/* ********Ações***** */}
                     <Box m="20px 0">
                         <FlexBox m="20px 0">
                             <Typography fontWeight="bold">
