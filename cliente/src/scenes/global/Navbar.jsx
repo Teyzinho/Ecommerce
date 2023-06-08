@@ -20,7 +20,13 @@ const Navbar = () => {
     return (
         <div className='navBar-container'>
             <div className='navbar'>
-                <span onClick={() => navigate("/")}>
+                <span 
+                    style={{
+                        background:"rgba(255, 255, 255)",
+                        padding:"0 5px",
+                        color: `${shades.secondary[500]}`
+                    }}
+                onClick={() => navigate("/")}>
                     E-commerce
                 </span>
 
