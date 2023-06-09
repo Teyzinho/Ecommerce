@@ -3,15 +3,15 @@ import { createTheme } from '@mui/material/styles';
 // Paletas de cores para tons primários, secundários e neutros
 export const shades = {
     primary: { // Preto
-        100: "#cccccc",
-        200: "#999999",
-        300: "#666666",
-        400: "#333333",
-        500: "#000000", // Cor principal
-        600: "#000000",
-        700: "#000000",
-        800: "#000000",
-        900: "#000000"
+        100: "#d0d0d0",
+        200: "#a0a0a0",
+        300: "#717171",
+        400: "#414141",
+        500: "#121212", // Cor principal
+        600: "#0e0e0e",
+        700: "#0b0b0b",
+        800: "#070707",
+        900: "#040404"
     },
     secondary: { // Azul
         100: "#d1e1ee",
@@ -37,6 +37,7 @@ export const shades = {
     },
 }
 
+
 // Criação do tema utilizando as paletas de cores definidas acima
 export const theme = createTheme({
     palette: {
@@ -54,7 +55,7 @@ export const theme = createTheme({
     },
     typography:{
         fontFamily: ['Roboto Condensed', 'sans-serif'].join(","), // Fonte do texto: "Fauna One" com fallback para "sans-serif"
-        fontSize: 16, // Tamanho padrão do texto
+        fontSize: 14, // Tamanho padrão do texto
         h1: {
             fontSize: 48, // Tamanho específico para o cabeçalho h1
         }

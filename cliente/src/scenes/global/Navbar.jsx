@@ -22,7 +22,8 @@ const Navbar = () => {
             <div className='navbar'>
                 <span 
                     style={{
-                        color: `${shades.secondary[500]}`
+                        color: `${shades.secondary[500]}`,
+                        cursor: "pointer"
                     }}
                 onClick={() => navigate("/")}>
                     E-commerce
@@ -36,7 +37,7 @@ const Navbar = () => {
                         <PersonOutline />
                     </IconButton>
                     <Badge
-                        badgeContent={cart.lenght}
+                        badgeContent={cart.length}
                         color='secondary'
                         invisible={cart.lenght === 0}
                         sx={{

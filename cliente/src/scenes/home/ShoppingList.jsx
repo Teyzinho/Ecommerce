@@ -46,7 +46,7 @@ const ShoppingList = () => {
         >
             <Typography
                 variant="h3"
-                textAling="center"
+                textAlign="center"
             >
                 Produtos em <b>Destaque</b>
             </Typography>
