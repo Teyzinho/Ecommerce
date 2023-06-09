@@ -53,7 +53,7 @@ export const theme = createTheme({
         }
     },
     typography:{
-        fontFamily: ["Fauna One", "sans-serif"].join(","), // Fonte do texto: "Fauna One" com fallback para "sans-serif"
+        fontFamily: ['Roboto Condensed', 'sans-serif'].join(","), // Fonte do texto: "Fauna One" com fallback para "sans-serif"
         fontSize: 16, // Tamanho padrão do texto
         h1: {
             fontSize: 48, // Tamanho específico para o cabeçalho h1

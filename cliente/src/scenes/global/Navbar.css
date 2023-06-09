@@ -3,6 +3,8 @@
     display: flex;
     width: 100%;
     z-index: 1;
+
+    background: white;
 }
 
 .navbar{
@@ -21,7 +23,3 @@
     gap: 10px;
 }
 
-.logo{
-    background:rgba(255, 255, 255, 0.5),
-    
-}

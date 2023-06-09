@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { IconButton, Box, Typography, useTheme, Button } from "@mui/material";
-import AddIcon from "@mui/material/Add";
-import RemoveIcon from "@mui/material/Remove";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 import { shades } from "../theme";
-import { addToCart } from "../scenes";
+import { addToCart } from "../state";
 import { useNavigate } from "react-router-dom";
 
 const Item = ({ item, width }) => {
     const navigate = useNavigate();
-    const dispatchEvent = useDispatch();
+    const dispatch = useDispatch();
     const [count, setCount] = useState(1); // Estado local para a quantidade do item
     const [isHovered, setIsHovered] = useState(false); // Estado local para indicar se o item está sendo destacado pelo mouse
 
@@ -23,10 +23,10 @@ const Item = ({ item, width }) => {
         data: {
             attributes: {
                 formats: {
-                    medium: { url },
-                }
-            }
-        }
+                    thumbnail: { url },
+                },
+            },
+        },
     } = image; // Desestruturação da URL da imagem do item
 
     return (
@@ -36,16 +36,24 @@ const Item = ({ item, width }) => {
                 onMouseOver={() => setIsHovered(true)} // Atualiza o estado para indicar que o mouse está sobre o item
                 onMouseOut={() => setIsHovered(false)} // Atualiza o estado para indicar que o mouse saiu do item
             >
-                <img
-                    src={`http://localhost:1338${url}`}
-                    alt={item.name}
-                    width={300}
-                    height={300}
-                    onClick={() => navigate(`/item/${item.id}`)} // Navega para a página do item quando a imagem é clicada
-                    style={{ cursor: 'pointer' }}
-                />
+                {/* Imagem */}
+                <Box 
+                    backgroundColor="grey"
+                    width="fit-Content"
+                >
+                    <img
+                        src={`http://localhost:1338${url}`}
+                        alt={item.name}
+                        width={300}
+                        height={300}
+                        onClick={() => navigate(`/item/${item.id}`)} // Navega para a página do item quando a imagem é clicada
+                        style={{ cursor: 'pointer' }}
+                    />
+                </Box>
+
+                {/* Botões */}
                 <Box
-                    display={isHovered ? "blocked" : "none"} // Exibe o conteúdo destacado somente quando o mouse está sobre o item
+                    display={isHovered ? "block" : "none"} // Exibe o conteúdo destacado somente quando o mouse está sobre o item
                     position="absolute"
                     bottom="10%"
                     left="0"
@@ -83,7 +91,9 @@ const Item = ({ item, width }) => {
                             onClick={() => { dispatch(addToCart({ item: { ...item, count } })) }} // Despacha a ação addToCart com o item e a quantidade selecionada
                             sx={{
                                 backgroundColor: shades.primary[300],
-                                color: "white"
+                                color: "white",
+                                fontSize: "0.8rem"
+
                             }}
                         >
                             Adicionar ao Carrinho

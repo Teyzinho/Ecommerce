@@ -22,8 +22,6 @@ const Navbar = () => {
             <div className='navbar'>
                 <span 
                     style={{
-                        background:"rgba(255, 255, 255)",
-                        padding:"0 5px",
                         color: `${shades.secondary[500]}`
                     }}
                 onClick={() => navigate("/")}>
