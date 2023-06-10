@@ -89,6 +89,7 @@ const Item = ({ item, width }) => {
                         {/* Botão para adicionar o item ao carrinho */}
                         <Button
                             onClick={() => { dispatch(addToCart({ item: { ...item, count } })) }} // Despacha a ação addToCart com o item e a quantidade selecionada
+                            variant='contained'
                             sx={{
                                 backgroundColor: shades.primary[300],
                                 color: "white",

@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+
 const initialState = {
   isCartOpen: false, // Estado inicial do carrinho (fechado)
   cart: [], // Array vazio para armazenar os itens do carrinho
@@ -16,6 +17,7 @@ export const cartSlice = createSlice({
 
     addToCart: (state, action) => {
       state.cart = [...state.cart, action.payload.item]; // Adiciona um item ao carrinho
+      state.isCartOpen = true;
     },
 
     removeFromCart: (state, action) => {

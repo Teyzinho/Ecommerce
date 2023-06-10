@@ -26,6 +26,7 @@ const Shipping = ({
                 />
             </Box>
 
+                {/* Botão CheckBox*/}
             <Box mb="20px">
                 <FormControlLabel
                     label="O mesmo para endereço de entrega"
@@ -35,10 +36,10 @@ const Shipping = ({
                             value={values.shippingAddress.isSameAddress}
                             onChange={() =>
                                 setFieldValue(
-                                    "shippingAddress.isSameAddress",
-                                    !values.shippingAddress.isSameAddress
+                                  "shippingAddress.isSameAddress",
+                                  !values.shippingAddress.isSameAddress
                                 )
-                            }
+                              }
                         />
                     }
                 />

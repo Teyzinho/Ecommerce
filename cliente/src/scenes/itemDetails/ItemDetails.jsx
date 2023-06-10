@@ -83,60 +83,73 @@ const ItemDetails = () => {
                             {item?.attributes.shortDescription}
                         </Typography>
                         {/* Preço Produto*/}
-                        <Typography>
+                        <Typography mb="25px">
                             R${item?.attributes.price}
                         </Typography>
                     </Box>
-
+                    {/* Botões */}
                     <Box
                         display="flex"
-                        alignItems="center"
+                        alignItems="flex-end"
                         minHeight="50px"
+                        justifyContent="space-between"
+
                     >
-                        <Box display="flex">
-                            {/* Botões */}
-                            <Box
-                                display="flex"
-                                alignItems="center"
-                                backgroundColor={shades.neutral[100]}
-                                borderRadius="5px"
-                            >
-                                <IconButton
-                                    onClick={() => setCount(Math.max(count - 1, 1))} // Reduz a quantidade do item, mas não permite que seja menor que 1
-                                >
-                                    <RemoveIcon />
-                                </IconButton>
-                                <Typography color={shades.primary[300]}>
-                                    {count}
+                        {/* Botões QTDE / ADD ao carrinho*/}
+                        <Box
+                            width="100%"
+                        >
+                            <Box display="flex" alignItems="center" gap="10px" mb="25px">
+                                <Typography>
+                                    Quantidade
                                 </Typography>
-                                <IconButton
-                                    onClick={() => setCount(count + 1)} // Aumenta a quantidade do item
+                                <Box
+                                    display="flex"
+                                    alignItems="center"
+                                    justifyContent="center"
+                                    backgroundColor={shades.neutral[300]}
+                                    borderRadius="5px"
+                                    width="fit-content"
                                 >
-                                    <AddIcon />
-                                </IconButton>
+                                    <IconButton
+                                        onClick={() => setCount(Math.max(count - 1, 1))} // Reduz a quantidade do item, mas não permite que seja menor que 1
+                                    >
+                                        <RemoveIcon />
+                                    </IconButton>
+                                    <Typography color={shades.primary[300]}>
+                                        {count}
+                                    </Typography>
+                                    <IconButton
+                                        onClick={() => setCount(count + 1)} // Aumenta a quantidade do item
+                                    >
+                                        <AddIcon />
+                                    </IconButton>
+                                </Box>
                             </Box>
+
                             {/* Adicionar ao carrinho */}
                             <Button
                                 onClick={() => dispatch(addToCart({ item: { ...item, count } }))}
+                                variant='contained'
                                 sx={{
                                     backgroundColor: shades.primary[300],
                                     color: "white",
-                                    fontSize: "0.8rem"
-
+                                    fontSize: "1rem",
+                                    width: "80%"
                                 }}
                             >
                                 Adicionar ao Carrinho
                             </Button>
                         </Box>
 
-                        <Box>
-                            <Box m="20px 0 5px 0" display="flex">
-                                <FavoriteBorderOutlinedIcon />
-                                <Typography>
-                                    Adicionar a Lista de Desejos
-                                </Typography>
-                            </Box>
+                        <Box m="20px 0 5px 0" display="flex" alignItems="center" gap="5px">
+                            <FavoriteBorderOutlinedIcon fontSize="large"/>
+                            <Typography >
+                                Adicionar a Lista de Desejos
+                            </Typography>
                         </Box>
+                    </Box>
+                    <Box>
                     </Box>
                 </Box>
 
@@ -166,8 +179,8 @@ const ItemDetails = () => {
                     columnGap="1.33%"
                     justifyContent="space-around"
                 >
-                    {items.slice(0,4).map((item, i) => (
-                        <Item key={`${item.name}-${i}`} item={item} width={300}/>
+                    {items.slice(0, 4).map((item, i) => (
+                        <Item key={`${item.name}-${i}`} item={item} width={300} />
                     ))}
                 </Box>
             </Box>

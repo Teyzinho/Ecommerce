@@ -36,7 +36,7 @@ const CartMenu = () => {
         <Box padding="30px" overflow="auto" height="100%">
           {/* Header */}
           <FlexBox mb="15px">
-            <Typography variant="h4">
+            <Typography variant="h5">
               SHOPPING BAG ({cart.length})
             </Typography>
             <IconButton onClick={() => dispatch(setIsCartOpen(false))}>
@@ -70,7 +70,7 @@ const CartMenu = () => {
                         <CloseIcon />
                       </IconButton>
                     </FlexBox>
-                    <Typography>
+                    <Typography fontSize="12px">
                       {item.attributes.shortDescription}
                     </Typography>
                     {/* Mais e Menos */}
@@ -113,6 +113,8 @@ const CartMenu = () => {
               </Typography>
             </FlexBox>
             <Button
+            color="primary"
+            variant='contained'
               sx={{
                 backgroundColor: shades.primary[400],
                 color: "white",

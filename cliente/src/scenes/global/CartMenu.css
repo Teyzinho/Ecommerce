@@ -7,13 +7,14 @@
     left:0;
     top:0;
     overflow: auto;
+
 }
 
 .cart-box{
     position:fixed;
     right:0;
     bottom:0;
-    width:max(400px, 30%);
+    width:max(400px, 20%);
     height:100%;
     background-color: white;
 }
