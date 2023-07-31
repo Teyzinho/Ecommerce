@@ -19,6 +19,10 @@ const ScrollToTop = () => {
   return null;
 }
 
+// if (process.env.NODE_ENV !== 'production') {
+//   require('dotenv').config();
+// }
+
 function App() {
   return (
     <div className="App">

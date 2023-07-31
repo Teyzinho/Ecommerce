@@ -42,7 +42,8 @@ const Item = ({ item, width }) => {
                     width="fit-Content"
                 >
                     <img
-                        src={`http://localhost:1338${url}`}
+                        // src={`http://localhost:1338${url}`}
+                        src={`${process.env.REACT_APP_SERVER_URL}${url}`}
                         alt={item.name}
                         width={300}
                         height={300}

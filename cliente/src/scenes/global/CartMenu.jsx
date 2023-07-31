@@ -50,8 +50,9 @@ const CartMenu = () => {
               <Box key={`${item.attributes.name}-${item.id}`}>
                 <FlexBox p="15px 0">
                   <Box flex="1 1 40%">
-                    <img
-                      src={`http://localhost:1338${item?.attributes?.image?.data?.attributes?.formats?.thumbnail?.url}`}
+                    <img 
+                      // src={`http://localhost:1338${item?.attributes?.image?.data?.attributes?.formats?.thumbnail?.url}`}
+                      src={`${process.env.REACT_APP_SERVER_URL}${item?.attributes?.image?.data?.attributes?.formats?.thumbnail?.url}`}
                       alt={item?.attributes?.name}
                       width="100%"
                       height="100%"

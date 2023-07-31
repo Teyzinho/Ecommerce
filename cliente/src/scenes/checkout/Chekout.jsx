@@ -122,24 +122,18 @@ const Checkout = () => {
         count,
       })),
     };
+    // http://localhost:1338/api/orders
 
-    const response = await fetch("http://localhost:1338/api/orders", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(requestBody),
-      });
-      const session = await response.json();
-    
-      if (session && session.id) {
-        const stripe = await stripePromise;
-        await stripe.redirectToCheckout({
-          sessionId: session.id,
-        });
-      } else {
-        console.log("Error creating Stripe session");
-      }
+    const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/api/orders`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(requestBody),
+    });
+    const session = await response.json();
+    await stripe.redirectToCheckout({
+      sessionId: session.id,
+    });
   }
-
 
   return (
     <Box width="80%" m="100px auto">

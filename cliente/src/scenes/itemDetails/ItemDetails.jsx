@@ -23,7 +23,8 @@ const ItemDetails = () => {
 
     async function getItem() {
         const item = await fetch(
-            `http://localhost:1338/api/items/${itemId}?populate=image`,
+            // `http://localhost:1338/api/items/${itemId}?populate=image`,
+            `${process.env.REACT_APP_SERVER_URL}/api/items/${itemId}?populate=image`,
             { method: "GET" }
         );
         const itemJson = await item.json();
@@ -32,7 +33,8 @@ const ItemDetails = () => {
 
     async function getItems() {
         const Items = await fetch(
-            "http://localhost:1338/api/items?populate=image",
+            // "http://localhost:1338/api/items?populate=image",
+            `${process.env.REACT_APP_SERVER_URL}/api/items?populate=image`,
             { method: "GET" }
         );
         const itemsJson = await Items.json();
@@ -56,7 +58,8 @@ const ItemDetails = () => {
                         alt={item?.name}
                         width="100%"
                         height="100%"
-                        src={`http://localhost:1338${item?.attributes?.image?.data?.attributes?.formats.thumbnail?.url}`}
+                        // src={`http://localhost:1338${item?.attributes?.image?.data?.attributes?.formats.thumbnail?.url}`}
+                        src={`${process.env.REACT_APP_SERVER_URL}${item?.attributes?.image?.data?.attributes?.formats.thumbnail?.url}`}
                         style={{ objectFit: "contain" }}
                     />
                 </Box>
