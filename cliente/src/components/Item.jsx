@@ -23,7 +23,7 @@ const Item = ({ item, width }) => {
         data: {
             attributes: {
                 formats: {
-                    thumbnail: { url },
+                    small: { url },
                 },
             },
         },
@@ -38,8 +38,9 @@ const Item = ({ item, width }) => {
             >
                 {/* Imagem */}
                 <Box 
-                    backgroundColor="grey"
+                    backgroundColor="#f5f5f5"
                     width="fit-Content"
+                    borderRadius={2}
                 >
                     <img
                         // src={`http://localhost:1338${url}`}
@@ -48,7 +49,7 @@ const Item = ({ item, width }) => {
                         width={300}
                         height={300}
                         onClick={() => navigate(`/item/${item.id}`)} // Navega para a página do item quando a imagem é clicada
-                        style={{ cursor: 'pointer' }}
+                        style={{ cursor: 'pointer', objectFit: 'cover' }}
                     />
                 </Box>
 

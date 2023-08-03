@@ -26,8 +26,21 @@ const ShoppingList = () => {
     }
 
     useEffect(() => {
-        getItems();
+        const fetchData = async () => {
+            try {
+                await getItems();
+            } catch (error) {
+                console.error("Error fetching items:", error);
+            }
+        };
+
+        fetchData();
     }, [])
+
+    // Wait for items to be loaded before filtering
+    if (!items) {
+        return <div>Loading...</div>; // You can use a loading spinner or any other loading indicator here
+    }
 
     //Filtros das categorias
     const topRatedItems = items.filter(

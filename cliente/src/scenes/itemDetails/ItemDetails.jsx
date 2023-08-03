@@ -54,14 +54,26 @@ const ItemDetails = () => {
             <Box display="flex" flexWrap="wrap" columnGap="40px">
                 {/* Imagens */}
                 <Box flex="1 1 40%" mb="30px">
-                    <img
-                        alt={item?.name}
-                        width="100%"
-                        height="100%"
-                        // src={`http://localhost:1338${item?.attributes?.image?.data?.attributes?.formats.thumbnail?.url}`}
-                        src={`${process.env.REACT_APP_SERVER_URL}${item?.attributes?.image?.data?.attributes?.formats.thumbnail?.url}`}
-                        style={{ objectFit: "contain" }}
-                    />
+                    {
+                        item ?
+                        (
+                            <img
+                            alt={item?.name}
+                            width="100%"
+                            height="100%"
+                            // src={`http://localhost:1338${item?.attributes?.image?.data?.attributes?.formats.thumbnail?.url}`}
+                            src={`${process.env.REACT_APP_SERVER_URL}${item?.attributes?.image?.data?.attributes?.url}`}
+                            style={{ objectFit: "cover" }}
+                        />
+                        )
+                        :
+                        (
+                            <div>
+                                Loading...
+                            </div>
+                        )
+                    }
+
                 </Box>
 
                 {/* Counteudo */}
